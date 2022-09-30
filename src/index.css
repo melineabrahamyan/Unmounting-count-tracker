@@ -1,0 +1,44 @@
+.container{
+  display: flex;
+  gap: 10px
+}
+ 
+.wrapper{
+   width: 300px;
+  height: 300px;
+  margin-top: 10px;
+  border-radius: 4px;
+  text-align: center;
+  background-color: #46805FFF;
+  border: none;
+}
+
+.card{
+  margin-top: 75px;
+  font-size: 80px;
+  color: white;
+}
+
+.button{
+margin-left: 235px;
+margin-top: 8px;
+border-radius: 7px;
+border: none;
+height: 25px;
+background-color: lightgray;
+cursor: pointer;
+}
+
+.unmount{
+  margin-top: 300px;
+  font-size: 20px;
+} 
+
+.report-button{
+ margin: 60px auto;
+ border-radius: 7px;
+border: none;
+height: 25px;
+background-color: lightgray;
+cursor: pointer;
+} 

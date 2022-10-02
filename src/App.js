@@ -46,45 +46,51 @@ class App extends Component {
     const { showReport } = this.state;
     return (
       <>
-        {this.state.cards.map((card) => {
-          return card.isVisible ? (
-            <>
-              <Card
-                key={card.title}
-                {...card}
-                hanldeUnmountCount={this.hanldeUnmountCount}
-              />
+        <div className="container">
+          {this.state.cards.map((card) => {
+            return card.isVisible ? (
+              <div className="card-wrapper">
+                <Card
+                  key={card.title}
+                  {...card}
+                  hanldeUnmountCount={this.hanldeUnmountCount}
+                />
+                <button
+                  className="close-button"
+                  onClick={() => {
+                    this.handleIsVisible(card.title);
+                  }}
+                >
+                  Close
+                </button>
+              </div>
+            ) : (
               <button
+                className="show-button"
                 onClick={() => {
                   this.handleIsVisible(card.title);
                 }}
               >
-                Close
+                Show
               </button>
+            );
+          })}
+        </div>
+        <div className="report-section">
+          <button className="report-button" onClick={this.handleShowReport}>
+            {showReport ? "Hide Report" : "Show Report"}
+          </button>
+          {showReport && (
+            <>
+              <h2>Reports</h2>
+              {this.state.cards.map((card) => (
+                <div>
+                  Card number {card.title} unmounted {card.unmountCount} times
+                </div>
+              ))}
             </>
-          ) : (
-            <button
-              onClick={() => {
-                this.handleIsVisible(card.title);
-              }}
-            >
-              Show
-            </button>
-          );
-        })}
-        <button onClick={this.handleShowReport}>
-          {showReport ? "Hide Report" : "Show Report"}
-        </button>
-        {showReport && (
-          <>
-            <h2>Repots</h2>
-            {this.state.cards.map((card) => (
-              <div>
-                Card number {card.title} unmounted {card.unmountCount} times
-              </div>
-            ))}
-          </>
-        )}
+          )}
+        </div>
       </>
     );
   }

@@ -8,11 +8,10 @@ export default class Card extends Component {
     this.props.hanldeUnmountCount(this.props.title);
   }
   render() {
-    const { title, unmountCount } = this.props;
+    const { title } = this.props;
     return (
       <>
-        <div>{title}</div>
-        <div>{unmountCount}</div>
+        <div className="card">{title}</div>
       </>
     );
   }
